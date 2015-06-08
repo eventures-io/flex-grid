@@ -21,7 +21,7 @@
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
-  <body ng-app="animatedGridApp">
+  <body ng-app="animatedGridApp" grid-events>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -53,10 +53,13 @@
         <script src="app/scripts/modernizr.custom.js"></script>
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/main/item-controller.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="app/scripts/classie.js"></script>
           <script src="app/scripts/modernizr.custom.js"></script>
+          <script src="components/grid-events/grid-events.js"></script>
+          <script src="components/grid-item/grid-item.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
 </body>

@@ -12,6 +12,7 @@ $viewport_xxl: 	$item_width * 6 + $sidebar_width; /* 6 columns */
 	.container, 
 	.main {
 		height: 100vh;
+       /* TODO check variables in calculation */
         width: calc(100vw - 310px);
 	}
 
