@@ -21,18 +21,19 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     }
 }
 
-
 $item_width: 300px;
 $sidebar_width: 300px;
 $color_primary: #f5f5f5;
 $color_secondary: #fff;
-$color_link: #81c483;
+$color_link: #367fc4;
 $anim-time: 0.5s;
+
+$meta_width: 280px;
 
 
 // Component styles are injected through grunt
 // injector
 @import 'styles/_base.scss';
 @import 'styles/_mediaqueries.scss';
-@import 'styles/style2.scss';
+@import 'styles/main.scss';
 // endinjector

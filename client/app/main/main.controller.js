@@ -3,24 +3,15 @@
 angular.module('feedReaderApp')
     .controller('MainController', function ($scope, $timeout, ReaderService) {
 
-        var Item = function (id, title, category, authorName, article) {
-            this.id = id,
-            this.title = title,
-            this.category = category,
-            this.author = {
-                    name: authorName
-                }
-            this.article = article;
-        }
-
-        $scope.items = ReaderService.getFeeds('http://www.oceanhealthindex.org/RSS/');
-
-        //TODO add listener for scope.$last instead
-        $timeout(function () {
-            $scope.$emit('ITEMS_LOADED');
-        }, 3000);
+        ReaderService.getFeeds().then(function(data){
+            $scope.feed = data.feed;
+        });
 
         $scope.$on('LOAD_ITEM', function (event, item) {
+
+            ReaderService.getArticle(item.link.href).then(function(article){
+                item.article = article;
+            });
             $scope.content = item;
             $scope.$apply();
         });

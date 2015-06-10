@@ -1,17 +1,11 @@
-/**
- * Using Rails-like standard naming convention for endpoints.
- * GET     /things              ->  index
- * POST    /things              ->  create
- * GET     /things/:id          ->  show
- * PUT     /things/:id          ->  update
- * DELETE  /things/:id          ->  destroy
- */
-
 'use strict';
 
 var _ = require('lodash');
 var http = require("http");
 var xml2json = require('xml2json');
+//var xmldoc = require('xmldoc');
+var request = require('request');
+var cheerio = require('cheerio');
 
 var parserOptions = {
     object: false,
@@ -33,14 +27,12 @@ exports.index = function(req, res) {
 
     var options = {
         host: 'mix.chimpfeedr.com',
-        path: '/d2392-Ocean-mix'
+        path: '/c951b-conservation-org'
     };
 
     var jsonResult;
 
     var req = http.get(options, function(response) {
-        //console.log('STATUS: ' + res.statusCode);
-        //console.log('HEADERS: ' + JSON.stringify(res.headers));
 
         var bodyChunks = [];
         response.on('data', function(chunk) {
@@ -48,7 +40,7 @@ exports.index = function(req, res) {
         }).on('end', function() {
                 var body = Buffer.concat(bodyChunks);
                 jsonResult = xml2json.toJson(body, parserOptions);
-                //console.log(jsonResult);
+              //  console.log(jsonResult);
                 res.json(jsonResult);
             });
     });
@@ -57,5 +49,21 @@ exports.index = function(req, res) {
         console.log('ERROR: ' + e.message);
     });
 
-
 };
+
+
+// Get article content
+exports.article = function(req, res) {
+    var url = req.params.url;
+
+    request(url, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var page = cheerio.load(body);
+            var article = page('article').html();
+            res.json(article);
+        }
+    });
+
+
+
+}
