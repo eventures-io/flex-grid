@@ -5,7 +5,7 @@
     <div class="meta meta--preview">
         <span class="category">{{item.author.name}}</span>
         <!--<img class="meta__avatar" src="{{item.author.img}}" alt="{{item.author.name}}">-->
-        <span class="meta__date"><i class="fa fa-calendar-o"></i>{{item.updated}}</span>
+        <span class="meta__date"><i class="fa fa-calendar-o"></i>{{item.updated | moment}}</span>
         <span class="meta__reading-time"><i class="fa fa-clock-o"></i>{{item.readingTime}}</span>
     </div>
 </div>

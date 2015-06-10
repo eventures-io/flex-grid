@@ -206,8 +206,6 @@ button:focus {
 	position: relative;
 	color: inherit;
 	background: $color_secondary;
-	min-height: $item_width;
-	cursor: pointer;
 	text-align: center;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -379,10 +377,12 @@ button:focus {
 }
 
 .meta__date,
-.meta__reading-time {
+.meta__reading-time
+{
 	display: block;
 	float: left;
 	color: #aaa;
+
 }
 
 .meta__reading-time {
@@ -395,6 +395,15 @@ button:focus {
 	clear: both;
 	text-align: left;
 	padding: 5px 0;
+}
+
+.meta__link {
+  margin: 0 0 1em 0;
+  position: relative;
+  font-size: 0.95em;
+  font-family: $serif;
+  text-align: center;
+  display: block;
 }
 
 .meta__misc--seperator {
