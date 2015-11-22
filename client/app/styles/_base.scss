@@ -269,7 +269,7 @@ button:focus {
 	position: absolute;
 	width: 100%;
 	height: 3px;
-	background: #a4e7ad;
+	background: $color_link;
 	left: 0;
 	top: -1px;
 	-webkit-transform: scale3d(0,1,1);
@@ -404,6 +404,7 @@ button:focus {
   font-family: $serif;
   text-align: center;
   display: block;
+  overflow: hidden;
 }
 
 .meta__misc--seperator {
