@@ -151,7 +151,13 @@ body {
 	}
 }
 
+/* override feed styles */
 .wp-caption {
   max-width: 100% !important;
+}
+
+img {
+  max-width: 100% !important;
+  height: auto !important;
 }
 
